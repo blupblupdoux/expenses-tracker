@@ -49,7 +49,8 @@ In config/routes.yaml add :
 api_login_check:
     path: /api/login_check
 ```
-Create user entity -> `bin/console make:user`
+Create user entity -> `bin/console make:user`  
+Send user connected in the token payload -> go to modify-jwt-payload.md
 
 ## manage cors
 

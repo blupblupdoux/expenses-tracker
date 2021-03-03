@@ -1,20 +1,20 @@
 <template>
-  <v-app>
-    <router-view></router-view>
-  </v-app>
+  <v-main>
+      dash
+  </v-main>
 </template>
 
 <script>
 
 export default {
-  name: 'App',
+  name: 'Dashboard',
 
   components: {
     
   },
 
   data: () => ({
-    //
+    
   }),
 };
 </script>
