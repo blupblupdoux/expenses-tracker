@@ -16,9 +16,18 @@ Install vue.js project -> `vue create vuejs_app`
 Install vue router  -> `vue add router`
 Install vuex -> `vue add vuex`  
 Install vutify -> `vue add vuetify`
-Install vue-chartjs -> not install yet
+Install vue-chartjs -> not install yet  
 
-For run front-end part : in the front-end folder run `npm run serve`
+For run front-end part : in the front-end folder run `npm run serve`  
+
+## axios
+
+Install axios -> `npm install --save axios vue-axios`  
+Set up axios ->  
+In main.js, import axios : `import axios from 'axios'`  
+After the import, we declare axios to use it globally : `Vue.prototype.$axios = axios`  
+Now to use axios we just need to make `this.$axios`  
+Note: in the state we can't use `this.$axios`, you need to re-import it locally
 
 ## authentication with JWT
 
