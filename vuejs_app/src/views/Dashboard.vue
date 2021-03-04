@@ -1,6 +1,7 @@
 <template>
   <v-main>
       dash
+      <v-btn @click="logout"></v-btn>
   </v-main>
 </template>
 
@@ -16,5 +17,14 @@ export default {
   data: () => ({
     
   }),
+
+  methods : {
+    logout() {
+      this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/connexion')
+        })
+    }
+  }
 };
 </script>

@@ -17,6 +17,10 @@ export default {
     
   }),
 
+  methods: {
+    
+  },
+
   created: function() {
     let that = this
 

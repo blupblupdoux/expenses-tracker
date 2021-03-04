@@ -1,7 +1,9 @@
+import store from '../store/index.js'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +24,10 @@ const routes = [
     component: Dashboard,
     meta: { requiresAuth: true }
   },
+  {
+    path :'/:pathMatch(.*)*',
+    component: NotFound
+  }
 ]
 
 const router = new VueRouter({
@@ -32,9 +38,11 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)) {
-    //check if user is connected
-    // if connected : next()
-    // if not connected : next('/connexion')
+    if(!store.getters.isConnected) {
+      next('/connexion')
+    } else {
+      next()
+    }
   } else {
     next()
   }
