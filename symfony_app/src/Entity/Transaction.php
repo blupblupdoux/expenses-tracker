@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TransactionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TransactionRepository::class)
@@ -14,52 +15,62 @@ class Transaction
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"transaction"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"transaction"})
      */
     private $label;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"transaction"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"transaction"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"transaction"})
      */
     private $date;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="transactions")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"transaction-relation","transaction-user"})
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="transactions")
+     * @Groups({"transaction-relation","transaction-category"})
      */
     private $category;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"transaction"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups({"transaction"})
      */
     private $updatedAt;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"transaction"})
      */
     private $amount;
 

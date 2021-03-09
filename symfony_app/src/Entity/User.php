@@ -55,11 +55,13 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="user", orphanRemoval=true)
+     * @Groups({"user-relation","user-transaction"})
      */
     private $transactions;
 
     /**
      * @ORM\OneToMany(targetEntity=Category::class, mappedBy="user")
+     * @Groups({"user-relation","user-category"})
      */
     private $categories;
 

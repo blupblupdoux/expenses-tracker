@@ -6,6 +6,7 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
@@ -16,46 +17,55 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"category"})
      */
     private $label;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"category"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"category"})
      */
     private $color;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"category"})
      */
     private $icon;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="categories")
+     * @Groups({"category-relation","category-user"})
      */
     private $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="category")
+     * @Groups({"category-relation","category-transaction"})
      */
     private $transactions;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"category"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups({"category"})
      */
     private $updatedAt;
 

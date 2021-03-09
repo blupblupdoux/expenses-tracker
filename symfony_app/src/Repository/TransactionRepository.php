@@ -19,22 +19,20 @@ class TransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Transaction::class);
     }
 
-    // /**
-    //  * @return Transaction[] Returns an array of Transaction objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Transaction[] Returns an array of Transaction objects
+    */
+    public function findAllByUser($user)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('t, u')
+            ->leftJoin('t.user', 'u')
+            ->where('u.id = :user')
+            ->setParameter('user', $user)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Transaction
