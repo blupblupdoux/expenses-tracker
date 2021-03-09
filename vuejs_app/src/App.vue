@@ -1,16 +1,19 @@
 <template>
   <v-app>
+    <navbar v-if="$route.name != 'Login'" />
     <router-view></router-view>
   </v-app>
 </template>
 
 <script>
 
+import navbar from './components/_navbar.vue'
+
 export default {
   name: 'App',
 
   components: {
-    
+    navbar
   },
 
   data: () => ({

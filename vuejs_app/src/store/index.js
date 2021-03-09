@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     apiURL: 'http://localhost:8000/api',
-    auth: {token: localStorage.getItem('user-token'), user: localStorage.getItem('user')}
+    auth: {token: localStorage.getItem('user-token'), user: JSON.parse(localStorage.getItem('user'))}
   },
 
   getters: {
@@ -48,7 +48,7 @@ export default new Vuex.Store({
              let tokenPayload = JSON.parse(jsonPayload)
 
              // store user in local storage
-             localStorage.setItem('user', tokenPayload.user)
+             localStorage.setItem('user', JSON.stringify(tokenPayload.user))
 
              // store token and user in state
              context.commit('CONNECTED', {token: token, user: tokenPayload.user})

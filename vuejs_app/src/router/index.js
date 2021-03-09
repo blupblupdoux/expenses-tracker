@@ -3,6 +3,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Tracker from '../views/Tracker.vue'
 import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -22,6 +23,12 @@ const routes = [
     path: '/tableau-de-bord',
     name: 'Dashboard',
     component: Dashboard,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/tracker',
+    name: 'Tracker',
+    component: Tracker,
     meta: { requiresAuth: true }
   },
   {

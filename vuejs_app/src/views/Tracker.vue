@@ -1,13 +1,13 @@
 <template>
-<v-main class="d-flex mx-auto align-center">
-    <v-img src="../assets/notFound.svg"></v-img>
+<v-main>
+    Tracker
 </v-main>
 </template>
 
 <script>
 
 export default {
-name: 'NotFound',
+name: 'Tracker',
 
 components: {
   
